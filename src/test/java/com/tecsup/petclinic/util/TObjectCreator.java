@@ -1,10 +1,13 @@
 package com.tecsup.petclinic.util;
 
 import com.tecsup.petclinic.dtos.PetDTO;
+import com.tecsup.petclinic.dtos.VisitDTO;
 import com.tecsup.petclinic.entities.Pet;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class TObjectCreator {
 
@@ -79,5 +82,20 @@ public class TObjectCreator {
 		pets.add(new Pet(12,"Lucky",2,10, null));
 		pets.add(new Pet(13,"Sly",1,10, null));
 		return pets;
+	}
+
+	public static VisitDTO getVisitDTO() {
+		return VisitDTO.builder()
+				.id(1)
+				.petId(7)
+				.vetId(2)
+				.visitDate(LocalDate.of(2010, 3, 4))
+				.description("rabies shot")
+				.cost(new BigDecimal("45.00"))
+				.build();
+	}
+
+	public static List<VisitDTO> getVisitsDTO() {
+		return List.of(getVisitDTO());
 	}
 }
